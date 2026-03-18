@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import SEO from '../components/SEO';
 import TrainingModal from '../components/TrainingModal';
 
@@ -29,10 +30,22 @@ const Advantage: React.FC = () => {
           <img alt="St Xavier School Campus Background" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/d/1wFs8MzdXrOdXDMx1yqh-FDm3z8iCcHd9" referrerPolicy="no-referrer"/>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6">The St. Xavier <span className="text-gold">Advantage</span></h1>
-          <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl md:text-6xl font-black text-white mb-6"
+          >
+            The St. Xavier <span className="text-gold">Advantage</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-xl text-white max-w-3xl mx-auto leading-relaxed"
+          >
             Joining the St. Xavier family is more than a business investment; it's a commitment to educational excellence and a legacy of nurturing global leaders.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -40,7 +53,13 @@ const Advantage: React.FC = () => {
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="order-2 lg:order-1"
+            >
               <h2 className="text-gold font-bold uppercase tracking-widest text-sm mb-4">What Parents Say</h2>
               <h3 className="text-4xl font-extrabold text-navy mb-8 leading-tight">Trusted by Families Across India</h3>
               
@@ -86,11 +105,17 @@ const Advantage: React.FC = () => {
                   100% { transform: scale(1); opacity: 1; }
                 }
               `}</style>
-            </div>
-            <div className="order-1 lg:order-2 relative">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-1 lg:order-2 relative"
+            >
               <div className="absolute -inset-4 border-2 border-gold/30 rounded-3xl -rotate-3"></div>
               <img alt="Happy Students and Parents" className="relative rounded-2xl shadow-2xl w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/d/1KsBGvgfftLEqvI-whrv73fn11193bRpv" referrerPolicy="no-referrer"/>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -99,8 +124,24 @@ const Advantage: React.FC = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-                <h2 className="text-gold font-bold uppercase tracking-widest text-sm mb-4">Operational Support</h2>
-                <h3 className="text-4xl font-extrabold text-navy">We Build the Foundation Together</h3>
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
+                  className="text-gold font-bold uppercase tracking-widest text-sm mb-4"
+                >
+                  Operational Support
+                </motion.h2>
+                <motion.h3 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-4xl font-extrabold text-navy"
+                >
+                  We Build the Foundation Together
+                </motion.h3>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
                 {[
@@ -108,7 +149,14 @@ const Advantage: React.FC = () => {
                     { icon: 'campaign', title: 'Marketing & Enrollment', text: 'Centralized national branding, localized digital marketing support, and robust lead generation funnels.' },
                     { icon: 'psychology', title: 'Training & Quality Control', text: 'Continuous professional development for faculty and administrative staff through our specialized training academy.' }
                 ].map((card, i) => (
-                    <div key={i} className="p-10 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-transform">
+                    <motion.div 
+                      key={i} 
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.6, delay: 0.3 + i * 0.2 }}
+                      className="p-10 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-transform"
+                    >
                         <div className="w-14 h-14 bg-navy text-gold rounded-2xl flex items-center justify-center mb-6">
                             <span className="material-icons text-3xl">{card.icon}</span>
                         </div>
@@ -128,7 +176,7 @@ const Advantage: React.FC = () => {
                             <span className="material-icons text-sm">arrow_forward</span>
                           </button>
                         )}
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>
@@ -138,10 +186,24 @@ const Advantage: React.FC = () => {
       <section className="py-24 bg-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">A Safe & Steady Education Business</h2>
-            <p className="text-slate-300 max-w-3xl mx-auto text-lg leading-relaxed">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-5xl font-extrabold text-white mb-6"
+            >
+              A Safe & Steady Education Business
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-slate-300 max-w-3xl mx-auto text-lg leading-relaxed"
+            >
               Education is always needed in every village and town. Our school model is designed to help you grow step by step.
-            </p>
+            </motion.p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -167,7 +229,14 @@ const Advantage: React.FC = () => {
                 desc: 'We guide you at every stage—from setup to daily operations.' 
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-primary transition-colors">
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: 0.2 + idx * 0.15 }}
+                className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-primary transition-colors"
+              >
                 <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 text-white">
                   <span className="material-icons">{item.icon}</span>
                 </div>
@@ -178,7 +247,7 @@ const Advantage: React.FC = () => {
                 <p className="text-slate-400 text-sm leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

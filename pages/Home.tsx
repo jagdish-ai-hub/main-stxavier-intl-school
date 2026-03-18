@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import SEO from '../components/SEO';
 
 const statsData = [
@@ -204,18 +205,33 @@ const Home: React.FC = () => {
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
               Global Expansion 2026
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6"
+            >
               Shape the Future <span className="text-primary">with US</span>
-            </h1>
-            <p className="text-xl text-slate-300 mb-10 leading-relaxed">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="text-xl text-slate-300 mb-10 leading-relaxed"
+            >
               Partner with St. Xavier International—India's fastest-growing premium school network. Leverage Our Years of academic and on ground experience to build a profitable education business.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Link to="/#partner-form" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:scale-105 transition-transform">
                 Request Franchise Info
                 <span className="material-icons ml-2">call</span>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </header>
@@ -331,8 +347,24 @@ const Home: React.FC = () => {
       {/* Why Choose Us */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">Why Choose Us</h2>
-          <p className="text-3xl md:text-5xl font-extrabold text-slate-900">The St. Xavier Franchise Advantage</p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4"
+          >
+            Why Choose Us
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-3xl md:text-5xl font-extrabold text-slate-900"
+          >
+            The St. Xavier Franchise Advantage
+          </motion.p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
@@ -340,13 +372,20 @@ const Home: React.FC = () => {
             { icon: 'auto_stories', title: 'Structured Academic Framework', desc: 'A well-designed curriculum model aligned with CBSE standards and enriched with modern teaching methodologies to ensure consistent academic delivery.' },
             { icon: 'trending_up', title: 'Scalable & Sustainable Model', desc: 'A structured franchise system designed for steady growth, operational clarity, and long-term financial sustainability.' },
           ].map((item, idx) => (
-            <div key={idx} className="p-10 rounded-3xl bg-white border border-slate-100 group hover:border-primary transition-all shadow-sm">
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 + idx * 0.2 }}
+              className="p-10 rounded-3xl bg-white border border-slate-100 group hover:border-primary transition-all shadow-sm"
+            >
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                 <span className="material-icons text-3xl">{item.icon}</span>
               </div>
               <h3 className="text-xl font-bold mb-4">{item.title}</h3>
               <p className="text-slate-600 leading-relaxed">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

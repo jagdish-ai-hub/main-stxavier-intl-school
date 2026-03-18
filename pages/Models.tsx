@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import SEO from '../components/SEO';
 
 const Models: React.FC = () => {
@@ -96,8 +97,24 @@ const Models: React.FC = () => {
       <section className="py-24 bg-slate-950 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
-                <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4">The Roadmap</h2>
-                <p className="text-3xl md:text-5xl font-extrabold">Your Journey to Launch</p>
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
+                  className="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4"
+                >
+                  The Roadmap
+                </motion.h2>
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-3xl md:text-5xl font-extrabold"
+                >
+                  Your Journey to Launch
+                </motion.p>
             </div>
             <div className="relative">
                 <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-800 -translate-y-1/2"></div>
@@ -110,7 +127,14 @@ const Models: React.FC = () => {
                         { step: '05', title: 'Training', desc: 'Staff recruitment and intensive training.' },
                         { step: 'rocket_launch', title: 'Launch', desc: 'Grand opening and admission drive.', icon: true }
                     ].map((item, i) => (
-                        <div key={i} className="relative group">
+                        <motion.div 
+                          key={i} 
+                          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                          viewport={{ once: true, margin: "-50px" }}
+                          transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
+                          className="relative group"
+                        >
                             <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto relative z-10 transition-colors ${item.icon ? 'bg-primary border-4 border-slate-900 text-white' : 'bg-slate-900 border-2 border-slate-800 text-primary group-hover:border-primary'}`}>
                                 {item.icon ? <span className="material-icons">{item.step}</span> : item.step}
                             </div>
@@ -118,7 +142,7 @@ const Models: React.FC = () => {
                                 <h4 className="font-bold mb-2">{item.title}</h4>
                                 <p className="text-xs text-slate-400">{item.desc}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
